@@ -7,8 +7,8 @@ import { SearchComponent } from './pages/search/search.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
-
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -21,7 +21,9 @@ import { ListComponent } from './pages/list/list.component';
   ],
   imports: [
     CommonModule,
-    HeroesRoutingModule
+    HeroesRoutingModule,
+    FlexLayoutModule,
+    MaterialModule
   ]
 })
 export class HeroesModule { }
