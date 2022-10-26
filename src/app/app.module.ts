@@ -8,10 +8,12 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+
   ],
   imports: [
     BrowserModule,
