@@ -12,5 +12,8 @@ export class HeroesService {
     return this.http.get<Heroe[]>('https://my-json-server.typicode.com/SebastianG302/db-heroesApp/heroes');
   }
 
+  getHeroesId( id: String ){
+    return this.http.get<Heroe>(`https://my-json-server.typicode.com/SebastianG302/db-heroesApp/heroes/${id}`)
+  }
 
 }
