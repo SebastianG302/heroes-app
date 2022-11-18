@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Heroe } from '../interfaces/heroes.interface';
 
 @Injectable({
@@ -8,12 +9,14 @@ import { Heroe } from '../interfaces/heroes.interface';
 export class HeroesService {
   constructor( private http: HttpClient) { }
 
+  private baseUrl: string = environment.baseUrl;
+
   getHeroes(){
-    return this.http.get<Heroe[]>('https://my-json-server.typicode.com/SebastianG302/db-heroesApp/heroes');
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`);
   }
 
   getHeroesId( id: String ){
-    return this.http.get<Heroe>(`https://my-json-server.typicode.com/SebastianG302/db-heroesApp/heroes/${id}`)
+    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${id}`)
   }
 
 }
