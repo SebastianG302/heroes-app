@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
 
   termino: string = '';
   heroes: Heroe[] = [];
-  selectedHeroe!: Heroe;
+  selectedHeroe: Heroe | undefined;
 
   constructor( private heroesService: HeroesService) { }
 
@@ -21,11 +21,17 @@ export class SearchComponent implements OnInit {
   }
 
   searching(){
-    this.heroesService.getSuggestions( this.termino )
+    this.heroesService.getSuggestions( this.termino.trim() )
       .subscribe (heroes => this.heroes = heroes)
   }
 
   selectedOption( event: MatAutocompleteSelectedEvent ){
+
+    if(!event.option.value){
+      this.selectedHeroe = undefined;
+      return;
+    }
+
     const heroe: Heroe = event.option.value;
     this.termino = heroe.superhero;
 
